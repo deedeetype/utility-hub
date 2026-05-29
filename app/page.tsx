@@ -3,13 +3,22 @@
 import React from 'react';
 import { Timer, Zap, Rocket, Coffee, Github, ExternalLink, LayoutGrid } from 'lucide-react';
 
-const TOOLS = [
+interface Tool {
+  name: string;
+  description: string;
+  icon: React.ReactNode;
+  color: string;
+  link: string;
+  tag: string;
+}
+
+const TOOLS: Tool[] = [
   {
     name: 'The Script Timer',
-    description: 'Calibrate your speech for TikTok, Reels, and Shorts. Perfect your timing in seconds.',
+    description: 'Calibrate your speech for short-form content (TikTok, Reels, YT Shorts). Perfect your timing in seconds.',
     icon: <Timer className="w-6 h-6" />,
     color: 'bg-indigo-500',
-    link: 'https://script-timer.netlify.app', // To be updated with the actual URL
+    link: 'https://script-timer.netlify.app', 
     tag: 'Productivity'
   },
   {
@@ -33,14 +42,12 @@ const TOOLS = [
 export default function UtilityHub() {
   return (
     <div className="min-h-screen bg-[#0f172a] text-slate-200 font-sans selection:bg-indigo-500/30">
-      {/* Gradient Background */}
       <div className="fixed top-0 left-0 w-full h-full overflow-hidden -z-10">
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-indigo-600/10 blur-[140px]" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-blue-600/10 blur-[140px]" />
       </div>
 
       <main className="max-w-6xl mx-auto px-6 py-16 md:py-24">
-        {/* Hero Section */}
         <header className="text-center mb-20">
           <div className="inline-flex items-center justify-center p-3 bg-indigo-500/10 rounded-2xl border border-indigo-500/20 text-indigo-400 mb-6">
             <LayoutGrid size={32} />
@@ -54,7 +61,6 @@ export default function UtilityHub() {
           </p>
         </header>
 
-        {/* Tools Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {TOOLS.map((tool, idx) => (
             <a 
@@ -82,13 +88,12 @@ export default function UtilityHub() {
                 </span>
                 <span className="text-xs font-medium text-slate-500 group-hover:text-slate-300 transition-colors">
                   Explore Tool →
-                </span>
+                </span
               </div>
             </a>
           ))}
         </div>
 
-        {/* Footer / Call to Action */}
         <footer className="mt-24 p-8 rounded-3xl bg-indigo-600/5 border border-indigo-500/10 text-center">
           <h2 className="text-2xl font-bold text-white mb-4">Fuel the Constellation 🚀</h2>
           <p className="text-slate-400 mb-8 max-w-xl mx-auto">
@@ -97,7 +102,7 @@ export default function UtilityHub() {
           </p>
           <div className="flex flex-wrap justify-center gap-6">
             <a 
-              href="https://www.buymeacoffee.com/your-profile" 
+              href="https://www.buymeacoffee.com" 
               target="_blank" 
               className="flex items-center gap-2 px-8 py-4 bg-indigo-500 hover:bg-indigo-400 text-white font-bold rounded-2xl transition-all shadow-lg shadow-indigo-500/20 hover:scale-105"
             >
