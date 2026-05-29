@@ -88,7 +88,7 @@ export default function UtilityHub() {
                 </span>
                 <span className="text-xs font-medium text-slate-500 group-hover:text-slate-300 transition-colors">
                   Explore Tool →
-                </span
+                </span>
               </div>
             </a>
           ))}
