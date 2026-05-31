@@ -35,7 +35,7 @@ const TOOLS: Tool[] = [
     description: 'Calibrate your speech for short-form content — TikTok, Reels, YT Shorts. Perfect your timing in seconds.',
     icon: <Timer size={22} />,
     category: 'productivity',
-    link: 'https://script-timer.netlify.app',
+    link: '/tools/script-timer',
     status: 'live',
   },
   {
@@ -307,8 +307,8 @@ export default function UtilityHub() {
                   <a
                     key={tool.name}
                     href={isLive ? tool.link : undefined}
-                    target={isLive ? '_blank' : undefined}
-                    rel={isLive ? 'noopener noreferrer' : undefined}
+                    target={isLive && tool.link.startsWith('http') ? '_blank' : undefined}
+                    rel={isLive && tool.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                     className={`group flex flex-col bg-slate-800/30 border border-slate-700/40 rounded-2xl p-6 transition-all duration-300 ${
                       isLive
                         ? 'hover:border-indigo-500/40 hover:bg-slate-800/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10'
