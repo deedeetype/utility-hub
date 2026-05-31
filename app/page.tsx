@@ -6,10 +6,15 @@ import {
   Type, Code2, Image as ImageIcon, Palette, Wrench,
   FileText, Hash, Maximize2, Pipette, Layers,
   Coffee, GitFork, Menu, X, Zap, Rocket, Star, ChevronRight,
+  Shuffle, Dice6, Coins, Receipt, Calendar, Activity, Calculator,
 } from 'lucide-react';
+// @ts-ignore
+import QrCode from 'lucide-react/dist/esm/icons/qr-code';
+// @ts-ignore
+import ArrowLeftRight from 'lucide-react/dist/esm/icons/arrow-left-right';
 
 type Status = 'live' | 'beta' | 'coming-soon';
-type CategoryKey = 'all' | 'productivity' | 'text' | 'code' | 'media' | 'design';
+type CategoryKey = 'all' | 'productivity' | 'text' | 'code' | 'media' | 'design' | 'fun' | 'convert';
 
 interface Tool {
   name: string;
@@ -22,7 +27,9 @@ interface Tool {
 
 const CATEGORIES: { key: CategoryKey; label: string; icon: React.ReactNode }[] = [
   { key: 'all',          label: 'All Tools',    icon: <LayoutGrid size={15} /> },
+  { key: 'fun',          label: 'Fun & Random', icon: <Shuffle size={15} /> },
   { key: 'productivity', label: 'Productivity', icon: <Timer size={15} /> },
+  { key: 'convert',      label: 'Calculators',  icon: <Calculator size={15} /> },
   { key: 'text',         label: 'Text',         icon: <Type size={15} /> },
   { key: 'code',         label: 'Code',         icon: <Code2 size={15} /> },
   { key: 'media',        label: 'Media',        icon: <ImageIcon size={15} /> },
@@ -108,6 +115,89 @@ const TOOLS: Tool[] = [
     icon: <Layers size={22} />,
     category: 'design',
     link: '/tools/css-gradient',
+    status: 'live',
+  },
+  // Fun & Random
+  {
+    name: 'Spin the Wheel',
+    description: 'Enter any list of options and spin a wheel to pick a random winner. Perfect for giveaways and decisions.',
+    icon: <Shuffle size={22} />,
+    category: 'fun',
+    link: '/tools/spin-wheel',
+    status: 'live',
+  },
+  {
+    name: 'Dice Roller',
+    description: 'Roll D4, D6, D8, D10, D12, D20 or D100 — any number of dice. Great for RPG and board games.',
+    icon: <Dice6 size={22} />,
+    category: 'fun',
+    link: '/tools/dice-roller',
+    status: 'live',
+  },
+  {
+    name: 'Coin Flipper',
+    description: 'Flip a virtual coin with a satisfying animation. Tracks your heads/tails history.',
+    icon: <Coins size={22} />,
+    category: 'fun',
+    link: '/tools/coin-flip',
+    status: 'live',
+  },
+  {
+    name: 'Random Number Generator',
+    description: 'Generate random numbers with custom range, count, and no-duplicates option. Perfect for lotteries.',
+    icon: <Hash size={22} />,
+    category: 'fun',
+    link: '/tools/random-number',
+    status: 'live',
+  },
+  // Productivity
+  {
+    name: 'Pomodoro Timer',
+    description: '25-minute focus sessions with short and long breaks. Audio alert when time is up.',
+    icon: <Timer size={22} />,
+    category: 'productivity',
+    link: '/tools/pomodoro',
+    status: 'live',
+  },
+  {
+    name: 'QR Code Generator',
+    description: 'Generate QR codes for any URL, text, email, phone, or WiFi. Download as PNG instantly.',
+    icon: <QrCode size={22} />,
+    category: 'productivity',
+    link: '/tools/qr-code',
+    status: 'live',
+  },
+  {
+    name: 'Tip Calculator',
+    description: 'Calculate tip and split the bill between any number of people with preset or custom percentages.',
+    icon: <Receipt size={22} />,
+    category: 'productivity',
+    link: '/tools/tip-calculator',
+    status: 'live',
+  },
+  // Calculators
+  {
+    name: 'Unit Converter',
+    description: 'Convert length, weight, temperature, volume and area between metric and imperial units instantly.',
+    icon: <ArrowLeftRight size={22} />,
+    category: 'convert',
+    link: '/tools/unit-converter',
+    status: 'live',
+  },
+  {
+    name: 'Age Calculator',
+    description: 'Enter a birthdate and get your exact age in years, months, days, weeks, hours — plus next birthday.',
+    icon: <Calendar size={22} />,
+    category: 'convert',
+    link: '/tools/age-calculator',
+    status: 'live',
+  },
+  {
+    name: 'BMI Calculator',
+    description: 'Calculate your Body Mass Index in metric or imperial. Visual gauge with category interpretation.',
+    icon: <Activity size={22} />,
+    category: 'convert',
+    link: '/tools/bmi-calculator',
     status: 'live',
   },
 ];
