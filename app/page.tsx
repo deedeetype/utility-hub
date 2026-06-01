@@ -12,9 +12,7 @@ import {
 import QrCode from 'lucide-react/dist/esm/icons/qr-code';
 // @ts-ignore
 import ArrowLeftRight from 'lucide-react/dist/esm/icons/arrow-left-right';
-
-type Status = 'live' | 'beta' | 'coming-soon';
-type CategoryKey = 'all' | 'productivity' | 'text' | 'code' | 'media' | 'design' | 'fun' | 'convert';
+import { TOOLS as TOOLS_DATA, CATEGORIES as CATEGORIES_DATA, type CategoryKey, type Status } from '@/lib/tools';
 
 interface Tool {
   name: string;
@@ -25,182 +23,54 @@ interface Tool {
   status: Status;
 }
 
-const CATEGORIES: { key: CategoryKey; label: string; icon: React.ReactNode }[] = [
-  { key: 'all',          label: 'All Tools',    icon: <LayoutGrid size={15} /> },
-  { key: 'fun',          label: 'Fun & Random', icon: <Shuffle size={15} /> },
-  { key: 'productivity', label: 'Productivity', icon: <Timer size={15} /> },
-  { key: 'convert',      label: 'Calculators',  icon: <Calculator size={15} /> },
-  { key: 'text',         label: 'Text',         icon: <Type size={15} /> },
-  { key: 'code',         label: 'Code',         icon: <Code2 size={15} /> },
-  { key: 'media',        label: 'Media',        icon: <ImageIcon size={15} /> },
-  { key: 'design',       label: 'Design',       icon: <Palette size={15} /> },
-];
+// Icon map — add an entry here when you add a new tool to lib/tools.ts
+const TOOL_ICONS: Record<string, React.ReactNode> = {
+  'script-timer':   <Timer size={22} />,
+  'pomodoro':       <Timer size={22} />,
+  'qr-code':        <QrCode size={22} />,
+  'tip-calculator': <Receipt size={22} />,
+  'word-counter':   <Type size={22} />,
+  'lorem-ipsum':    <FileText size={22} />,
+  'case-converter': <Type size={22} />,
+  'base64':         <Hash size={22} />,
+  'json-formatter': <Code2 size={22} />,
+  'regex-tester':   <Wrench size={22} />,
+  'image-resizer':  <Maximize2 size={22} />,
+  'color-picker':   <Pipette size={22} />,
+  'css-gradient':   <Layers size={22} />,
+  'spin-wheel':     <Shuffle size={22} />,
+  'dice-roller':    <Dice6 size={22} />,
+  'coin-flip':      <Coins size={22} />,
+  'random-number':  <Hash size={22} />,
+  'unit-converter': <ArrowLeftRight size={22} />,
+  'age-calculator': <Calendar size={22} />,
+  'bmi-calculator': <Activity size={22} />,
+};
 
-const TOOLS: Tool[] = [
-  {
-    name: 'Script Timer',
-    description: 'Calibrate your speech for short-form content — TikTok, Reels, YT Shorts. Perfect your timing in seconds.',
-    icon: <Timer size={22} />,
-    category: 'productivity',
-    link: '/tools/script-timer',
-    status: 'live',
-  },
-  {
-    name: 'Word Counter',
-    description: 'Count words, characters, sentences, and reading time instantly. Perfect for SEO copy, social posts, and essays.',
-    icon: <Type size={22} />,
-    category: 'text',
-    link: '/tools/word-counter',
-    status: 'live',
-  },
-  {
-    name: 'Lorem Ipsum Generator',
-    description: 'Generate placeholder text in seconds — choose paragraphs, words, or sentences on demand.',
-    icon: <FileText size={22} />,
-    category: 'text',
-    link: '/tools/lorem-ipsum',
-    status: 'live',
-  },
-  {
-    name: 'Case Converter',
-    description: 'Switch between UPPERCASE, lowercase, Title Case, camelCase, snake_case and more in one click.',
-    icon: <Type size={22} />,
-    category: 'text',
-    link: '/tools/case-converter',
-    status: 'live',
-  },
-  {
-    name: 'Base64 Encoder / Decoder',
-    description: 'Encode or decode any text or file to Base64 format instantly, entirely in your browser.',
-    icon: <Hash size={22} />,
-    category: 'code',
-    link: '/tools/base64',
-    status: 'live',
-  },
-  {
-    name: 'JSON Formatter',
-    description: 'Prettify, minify, and validate JSON with syntax highlighting. No data ever leaves your browser.',
-    icon: <Code2 size={22} />,
-    category: 'code',
-    link: '/tools/json-formatter',
-    status: 'live',
-  },
-  {
-    name: 'Regex Tester',
-    description: 'Write, test, and debug regular expressions with live match highlighting and pattern explanations.',
-    icon: <Wrench size={22} />,
-    category: 'code',
-    link: '/tools/regex-tester',
-    status: 'live',
-  },
-  {
-    name: 'Image Resizer',
-    description: 'Resize and compress images directly in your browser — no uploads, no servers, instant results.',
-    icon: <Maximize2 size={22} />,
-    category: 'media',
-    link: '/tools/image-resizer',
-    status: 'live',
-  },
-  {
-    name: 'Color Picker',
-    description: 'Pick colors, generate palettes, and convert between HEX, RGB, HSL and more.',
-    icon: <Pipette size={22} />,
-    category: 'design',
-    link: '/tools/color-picker',
-    status: 'live',
-  },
-  {
-    name: 'CSS Gradient Generator',
-    description: 'Build beautiful CSS gradients visually and copy the code instantly. Linear, radial, and conic.',
-    icon: <Layers size={22} />,
-    category: 'design',
-    link: '/tools/css-gradient',
-    status: 'live',
-  },
-  // Fun & Random
-  {
-    name: 'Spin the Wheel',
-    description: 'Enter any list of options and spin a wheel to pick a random winner. Perfect for giveaways and decisions.',
-    icon: <Shuffle size={22} />,
-    category: 'fun',
-    link: '/tools/spin-wheel',
-    status: 'live',
-  },
-  {
-    name: 'Dice Roller',
-    description: 'Roll D4, D6, D8, D10, D12, D20 or D100 — any number of dice. Great for RPG and board games.',
-    icon: <Dice6 size={22} />,
-    category: 'fun',
-    link: '/tools/dice-roller',
-    status: 'live',
-  },
-  {
-    name: 'Coin Flipper',
-    description: 'Flip a virtual coin with a satisfying animation. Tracks your heads/tails history.',
-    icon: <Coins size={22} />,
-    category: 'fun',
-    link: '/tools/coin-flip',
-    status: 'live',
-  },
-  {
-    name: 'Random Number Generator',
-    description: 'Generate random numbers with custom range, count, and no-duplicates option. Perfect for lotteries.',
-    icon: <Hash size={22} />,
-    category: 'fun',
-    link: '/tools/random-number',
-    status: 'live',
-  },
-  // Productivity
-  {
-    name: 'Pomodoro Timer',
-    description: '25-minute focus sessions with short and long breaks. Audio alert when time is up.',
-    icon: <Timer size={22} />,
-    category: 'productivity',
-    link: '/tools/pomodoro',
-    status: 'live',
-  },
-  {
-    name: 'QR Code Generator',
-    description: 'Generate QR codes for any URL, text, email, phone, or WiFi. Download as PNG instantly.',
-    icon: <QrCode size={22} />,
-    category: 'productivity',
-    link: '/tools/qr-code',
-    status: 'live',
-  },
-  {
-    name: 'Tip Calculator',
-    description: 'Calculate tip and split the bill between any number of people with preset or custom percentages.',
-    icon: <Receipt size={22} />,
-    category: 'productivity',
-    link: '/tools/tip-calculator',
-    status: 'live',
-  },
-  // Calculators
-  {
-    name: 'Unit Converter',
-    description: 'Convert length, weight, temperature, volume and area between metric and imperial units instantly.',
-    icon: <ArrowLeftRight size={22} />,
-    category: 'convert',
-    link: '/tools/unit-converter',
-    status: 'live',
-  },
-  {
-    name: 'Age Calculator',
-    description: 'Enter a birthdate and get your exact age in years, months, days, weeks, hours — plus next birthday.',
-    icon: <Calendar size={22} />,
-    category: 'convert',
-    link: '/tools/age-calculator',
-    status: 'live',
-  },
-  {
-    name: 'BMI Calculator',
-    description: 'Calculate your Body Mass Index in metric or imperial. Visual gauge with category interpretation.',
-    icon: <Activity size={22} />,
-    category: 'convert',
-    link: '/tools/bmi-calculator',
-    status: 'live',
-  },
-];
+const CATEGORY_ICONS: Record<CategoryKey, React.ReactNode> = {
+  all:          <LayoutGrid size={15} />,
+  fun:          <Shuffle size={15} />,
+  productivity: <Timer size={15} />,
+  convert:      <Calculator size={15} />,
+  text:         <Type size={15} />,
+  code:         <Code2 size={15} />,
+  media:        <ImageIcon size={15} />,
+  design:       <Palette size={15} />,
+};
+
+const CATEGORIES = CATEGORIES_DATA.map(c => ({
+  ...c,
+  icon: CATEGORY_ICONS[c.key],
+}));
+
+const TOOLS: Tool[] = TOOLS_DATA.map(t => ({
+  name:        t.name,
+  description: t.description,
+  icon:        TOOL_ICONS[t.slug] ?? <Zap size={22} />,
+  category:    t.category,
+  link:        `/tools/${t.slug}`,
+  status:      t.status,
+}));
 
 const STATUS_CONFIG: Record<Status, { label: string; classes: string }> = {
   live:          { label: 'Live',         classes: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' },
