@@ -34,6 +34,8 @@ export const CATEGORIES: CategoryDef[] = [
 ];
 
 // ─── Add new tools here — sitemap, hub and categories update automatically ───
+// Format: { slug, name, description, category, status }
+// slug must match the directory name in app/tools/
 
 export const TOOLS: ToolDef[] = [
   // Productivity
@@ -181,6 +183,95 @@ export const TOOLS: ToolDef[] = [
     name: 'BMI Calculator',
     description: 'Calculate your Body Mass Index in metric or imperial. Visual gauge with category interpretation.',
     category: 'convert',
+    status: 'live',
+  },
+  // Security / Productivity
+  {
+    slug: 'password-generator',
+    name: 'Password Generator',
+    description: 'Generate strong, secure passwords with custom length, uppercase, lowercase, numbers and symbols.',
+    category: 'productivity',
+    status: 'live',
+  },
+  {
+    slug: 'password-strength',
+    name: 'Password Strength Checker',
+    description: 'Check how secure your password is — locally in your browser. Nothing is ever sent anywhere.',
+    category: 'productivity',
+    status: 'live',
+  },
+  {
+    slug: 'url-encoder',
+    name: 'URL Encoder / Decoder',
+    description: 'Encode and decode URLs and query strings instantly. Handles special characters and percent-encoding.',
+    category: 'code',
+    status: 'live',
+  },
+  // Math / Finance
+  {
+    slug: 'percentage-calculator',
+    name: 'Percentage Calculator',
+    description: 'Calculate percentages, discounts, tax and percentage change. Three calculation modes.',
+    category: 'convert',
+    status: 'live',
+  },
+  {
+    slug: 'loan-calculator',
+    name: 'Loan Calculator',
+    description: 'Calculate monthly payments, total interest and full cost of any loan or mortgage.',
+    category: 'convert',
+    status: 'live',
+  },
+  {
+    slug: 'calorie-calculator',
+    name: 'Calorie Calculator',
+    description: 'Calculate your daily calorie needs (TDEE) based on age, height, weight and activity level.',
+    category: 'convert',
+    status: 'live',
+  },
+  // Time
+  {
+    slug: 'countdown',
+    name: 'Countdown Timer',
+    description: 'Count down to any future date or event. Add a name, pick presets like New Year or Summer.',
+    category: 'productivity',
+    status: 'live',
+  },
+  {
+    slug: 'timezone-converter',
+    name: 'Timezone Converter',
+    description: 'Convert any date and time between world timezones. Add multiple target timezones at once.',
+    category: 'productivity',
+    status: 'live',
+  },
+  // Text
+  {
+    slug: 'text-diff',
+    name: 'Text Diff',
+    description: 'Compare two texts side by side and see additions and deletions highlighted line by line.',
+    category: 'text',
+    status: 'live',
+  },
+  {
+    slug: 'morse-code',
+    name: 'Morse Code Converter',
+    description: 'Convert text to Morse code and back. Play the audio with real beeps in your browser.',
+    category: 'fun',
+    status: 'live',
+  },
+  // Design / Media
+  {
+    slug: 'aspect-ratio',
+    name: 'Aspect Ratio Calculator',
+    description: 'Calculate dimensions for any aspect ratio. Includes presets for social media, video and photo.',
+    category: 'media',
+    status: 'live',
+  },
+  {
+    slug: 'color-palette',
+    name: 'Color Palette Generator',
+    description: 'Generate harmonious color palettes from any base color. Complementary, analogous, triadic and more.',
+    category: 'design',
     status: 'live',
   },
 ];

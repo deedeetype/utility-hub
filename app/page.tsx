@@ -6,12 +6,26 @@ import {
   Type, Code2, Image as ImageIcon, Palette, Wrench,
   FileText, Hash, Maximize2, Pipette, Layers,
   Coffee, GitFork, Menu, X, Zap, Rocket, Star, ChevronRight,
-  Shuffle, Dice6, Coins, Receipt, Calendar, Activity, Calculator,
+  Shuffle, Dice6, Coins, Receipt, Calendar, Activity, Calculator, Percent,
 } from 'lucide-react';
 // @ts-ignore
 import QrCode from 'lucide-react/dist/esm/icons/qr-code';
 // @ts-ignore
 import ArrowLeftRight from 'lucide-react/dist/esm/icons/arrow-left-right';
+// @ts-ignore
+import KeyRound from 'lucide-react/dist/esm/icons/key-round';
+// @ts-ignore
+import Shield from 'lucide-react/dist/esm/icons/shield';
+// @ts-ignore
+import LinkIcon from 'lucide-react/dist/esm/icons/link';
+// @ts-ignore
+import Flame from 'lucide-react/dist/esm/icons/flame';
+// @ts-ignore
+import Globe from 'lucide-react/dist/esm/icons/globe';
+// @ts-ignore
+import GitCompare from 'lucide-react/dist/esm/icons/git-compare';
+// @ts-ignore
+import Radio from 'lucide-react/dist/esm/icons/radio';
 import { TOOLS as TOOLS_DATA, CATEGORIES as CATEGORIES_DATA, type CategoryKey, type Status } from '@/lib/tools';
 
 interface Tool {
@@ -42,9 +56,21 @@ const TOOL_ICONS: Record<string, React.ReactNode> = {
   'dice-roller':    <Dice6 size={22} />,
   'coin-flip':      <Coins size={22} />,
   'random-number':  <Hash size={22} />,
-  'unit-converter': <ArrowLeftRight size={22} />,
-  'age-calculator': <Calendar size={22} />,
-  'bmi-calculator': <Activity size={22} />,
+  'unit-converter':        <ArrowLeftRight size={22} />,
+  'age-calculator':        <Calendar size={22} />,
+  'bmi-calculator':        <Activity size={22} />,
+  'password-generator':    <KeyRound size={22} />,
+  'password-strength':     <Shield size={22} />,
+  'url-encoder':           <LinkIcon size={22} />,
+  'percentage-calculator': <Percent size={22} />,
+  'loan-calculator':       <Calculator size={22} />,
+  'calorie-calculator':    <Flame size={22} />,
+  'countdown':             <Timer size={22} />,
+  'timezone-converter':    <Globe size={22} />,
+  'text-diff':             <GitCompare size={22} />,
+  'morse-code':            <Radio size={22} />,
+  'aspect-ratio':          <Maximize2 size={22} />,
+  'color-palette':         <Palette size={22} />,
 };
 
 const CATEGORY_ICONS: Record<CategoryKey, React.ReactNode> = {
