@@ -21,17 +21,45 @@ function MoonIcon() {
   );
 }
 
+function CoffeeIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+      fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M17 8h1a4 4 0 1 1 0 8h-1"/>
+      <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
+      <line x1="6" x2="6" y1="2" y2="4"/>
+      <line x1="10" x2="10" y1="2" y2="4"/>
+      <line x1="14" x2="14" y1="2" y2="4"/>
+    </svg>
+  );
+}
+
 export default function ThemeToggle() {
   const { theme, toggle } = useTheme();
 
   return (
-    <button
-      onClick={toggle}
-      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      className="fixed bottom-5 right-5 z-50 flex items-center justify-center w-11 h-11 rounded-full shadow-lg border transition-all hover:scale-110
-        dark-toggle bg-slate-800 border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700"
-    >
-      {theme === "dark" ? <SunIcon /> : <MoonIcon />}
-    </button>
+    <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-2">
+      {/* Buy Me a Coffee */}
+      <a
+        href="https://buymeacoffee.com/deedeetype"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Buy me a coffee"
+        className="flex items-center justify-center w-11 h-11 rounded-full shadow-lg border transition-all hover:scale-110
+          bg-amber-500 border-amber-400 text-white hover:bg-amber-400"
+      >
+        <CoffeeIcon />
+      </a>
+
+      {/* Dark / Light toggle */}
+      <button
+        onClick={toggle}
+        aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+        className="flex items-center justify-center w-11 h-11 rounded-full shadow-lg border transition-all hover:scale-110
+          dark-toggle bg-slate-800 border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700"
+      >
+        {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+      </button>
+    </div>
   );
 }
