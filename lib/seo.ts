@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const SITE_URL = 'https://www.1001freetools.com';
-export const SITE_NAME = '1001WebTools';
+export const SITE_NAME = '1001FreeTools';
 
 export function toolMeta(title: string, description: string, path: string): Metadata {
   const url = `${SITE_URL}${path}`;

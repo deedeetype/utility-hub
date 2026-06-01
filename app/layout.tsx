@@ -15,27 +15,39 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "20+ free online tools for creators, developers and makers. Word counter, QR code generator, dice roller, tip calculator and more. No ads, no registration.",
+    "32+ free online tools for creators, developers and makers. Word counter, QR code generator, dice roller, tip calculator and more. No ads, no registration.",
   keywords: [
     "free online tools", "web tools", "utility tools", "no signup tools",
     "word counter", "QR code generator", "dice roller", "tip calculator",
     "unit converter", "BMI calculator", "pomodoro timer", "lorem ipsum generator",
+    "password generator", "percentage calculator", "loan calculator",
   ],
-  authors: [{ name: "1001FreeTools" }],
-  creator: "1001FreeTools",
+  icons: {
+    icon: [
+      { url: "/logo.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/logo.png", type: "image/png" },
+    ],
+    shortcut: "/logo.png",
+  },
+  authors: [{ name: SITE_NAME }],
+  creator: SITE_NAME,
   openGraph: {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
     siteName: SITE_NAME,
     title: `${SITE_NAME} — Free Online Tools for Everyone`,
-    description: "20+ free online tools for creators, developers and makers. No ads, no registration, no clutter.",
+    description: "32+ free online tools for creators, developers and makers. No ads, no registration, no clutter.",
+    images: [{ url: "/logo.png", width: 1024, height: 1024, alt: SITE_NAME }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${SITE_NAME} — Free Online Tools for Everyone`,
-    description: "20+ free online tools. No ads, no signup.",
+    description: "32+ free online tools. No ads, no signup.",
     site: "@1001freetools",
+    images: ["/logo.png"],
   },
   robots: {
     index: true,

@@ -14,7 +14,7 @@ function NavBar() {
         {/* @ts-ignore */}
         <div className="flex items-center gap-2 text-sm font-medium text-white"><QrCode size={15} className="text-indigo-400" /> QR Code Generator</div>
         <div className="flex-1" />
-        <a href="/" className="flex items-center gap-1.5 text-xs text-slate-500 hover:text-indigo-400 transition"><LayoutGrid size={13} /> 1001WebTools</a>
+        <a href="/" className="flex items-center gap-1.5 text-xs text-slate-500 hover:text-indigo-400 transition"><img src="/logo.png" alt="1001FreeTools" className="w-6 h-6 rounded-md" /></a>
       </div>
     </nav>
   );

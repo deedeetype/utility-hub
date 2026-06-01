@@ -20,7 +20,7 @@ function NavBar() {
         </div>
         <div className="flex-1" />
         <a href="/" className="flex items-center gap-1.5 text-xs text-slate-500 hover:text-indigo-400 transition">
-          <LayoutGrid size={13} /> 1001WebTools
+          <img src="/logo.png" alt="1001FreeTools" className="w-6 h-6 rounded-md" />
         </a>
       </div>
     </nav>

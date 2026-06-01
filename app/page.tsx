@@ -148,11 +148,9 @@ export default function UtilityHub() {
 
           {/* Logo */}
           <a href="/" className="flex items-center gap-2.5 shrink-0 mr-2">
-            <div className="p-1.5 rounded-lg bg-indigo-500/15 border border-indigo-500/20 text-indigo-400">
-              <LayoutGrid size={17} />
-            </div>
-            <span className="font-bold text-white text-[17px] tracking-tight">
-              1001<span className="text-indigo-400">WebTools</span>
+            <img src="/logo.png" alt="1001FreeTools" className="w-8 h-8 rounded-xl" />
+            <span className="font-bold text-white text-[17px] tracking-tight hidden sm:block">
+              1001<span className="text-indigo-400">FreeTools</span>
             </span>
           </a>
 
@@ -380,10 +378,8 @@ export default function UtilityHub() {
             {/* Brand */}
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <div className="p-1.5 rounded-lg bg-indigo-500/15 border border-indigo-500/20 text-indigo-400">
-                  <LayoutGrid size={15} />
-                </div>
-                <span className="font-bold text-white">1001<span className="text-indigo-400">WebTools</span></span>
+                <img src="/logo.png" alt="1001FreeTools" className="w-7 h-7 rounded-lg" />
+                <span className="font-bold text-white">1001<span className="text-indigo-400">FreeTools</span></span>
               </div>
               <p className="text-slate-500 text-sm leading-relaxed">
                 Fast, focused utilities for the modern web. Free forever.
@@ -446,7 +442,7 @@ export default function UtilityHub() {
 
           {/* Bottom bar */}
           <div className="border-t border-slate-800/60 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-600">
-            <span>© {new Date().getFullYear()} 1001WebTools — Built with ♥</span>
+            <span>© {new Date().getFullYear()} 1001FreeTools — Built with ♥</span>
             <a
               href="https://github.com/deedeetype"
               target="_blank"
