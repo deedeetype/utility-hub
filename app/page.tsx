@@ -359,7 +359,7 @@ export default function UtilityHub() {
                 <Star size={17} /> Suggest a tool
               </a>
               <a
-                href="https://www.buymeacoffee.com"
+                href="https://buymeacoffee.com/deedeetype"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-2xl transition-all border border-slate-700 hover:scale-105"
@@ -415,7 +415,7 @@ export default function UtilityHub() {
                   { label: 'All Tools',       href: '#tools'                            },
                   { label: 'Suggest a Tool',  href: '#suggest'                          },
                   { label: 'GitHub',          href: 'https://github.com/deedeetype'    },
-                  { label: 'Buy me a coffee', href: 'https://www.buymeacoffee.com'     },
+                  { label: 'Buy me a coffee', href: 'https://buymeacoffee.com/deedeetype'     },
                 ].map(link => (
                   <li key={link.label}>
                     <a
