@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Hash, Copy, ArrowLeft, LayoutGrid, X } from 'lucide-react';
 // @ts-ignore
 import ArrowLeftRight from 'lucide-react/dist/esm/icons/arrow-left-right';
@@ -20,7 +20,7 @@ function NavBar() {
         </div>
         <div className="flex-1" />
         <a href="/" className="flex items-center gap-1.5 text-xs text-slate-500 hover:text-indigo-400 transition">
-          <img src="/logo.png" alt="1001FreeTools" className="w-6 h-6 rounded-md" />
+          <img src="/logo.png" alt="1001FreeTools" width="24" height="24" loading="lazy" className="w-6 h-6 rounded-md" />
         </a>
       </div>
     </nav>
@@ -33,19 +33,16 @@ export default function Base64Tool() {
   const [mode, setMode] = useState<Mode>('encode');
   const [input, setInput] = useState('');
   const [copied, setCopied] = useState(false);
-  const [error, setError] = useState('');
 
-  const output = (() => {
-    if (!input.trim()) return '';
+  const { output, error } = useMemo(() => {
+    if (!input.trim()) return { output: '', error: '' };
     try {
-      setError('');
-      if (mode === 'encode') return btoa(unescape(encodeURIComponent(input)));
-      return decodeURIComponent(escape(atob(input.trim())));
+      if (mode === 'encode') return { output: btoa(unescape(encodeURIComponent(input))), error: '' };
+      return { output: decodeURIComponent(escape(atob(input.trim()))), error: '' };
     } catch {
-      setError(mode === 'decode' ? 'Invalid Base64 string.' : 'Encoding failed.');
-      return '';
+      return { output: '', error: mode === 'decode' ? 'Invalid Base64 string.' : 'Encoding failed.' };
     }
-  })();
+  }, [input, mode]);
 
   const copy = async () => {
     await navigator.clipboard.writeText(output).catch(() => {});
@@ -61,8 +58,8 @@ export default function Base64Tool() {
   return (
     <div className="min-h-screen bg-[#0f172a] text-slate-200 font-sans selection:bg-indigo-500/30">
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-600/15 blur-[140px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-600/15 blur-[140px]" />
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-600/15 blur-[60px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-600/15 blur-[60px]" />
       </div>
       <NavBar />
       <main className="max-w-4xl mx-auto px-6 py-12 md:py-16">

@@ -138,8 +138,8 @@ export default function UtilityHub() {
 
       {/* Background glows */}
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-15%] left-[-5%] w-[50%] h-[50%] rounded-full bg-indigo-700/10 blur-[180px]" />
-        <div className="absolute bottom-[-10%] right-[-5%] w-[45%] h-[45%] rounded-full bg-blue-700/10 blur-[160px]" />
+        <div className="absolute top-[-15%] left-[-5%] w-[50%] h-[50%] rounded-full bg-indigo-700/10 blur-[60px]" />
+        <div className="absolute bottom-[-10%] right-[-5%] w-[45%] h-[45%] rounded-full bg-blue-700/10 blur-[60px]" />
       </div>
 
       {/* ── Navbar ──────────────────────────────────────────────────── */}
@@ -148,7 +148,7 @@ export default function UtilityHub() {
 
           {/* Logo */}
           <a href="/" className="flex items-center gap-2.5 shrink-0 mr-2">
-            <img src="/logo.png" alt="1001FreeTools" className="w-8 h-8 rounded-xl" />
+            <img src="/logo.png" alt="1001FreeTools" width="32" height="32" className="w-8 h-8 rounded-xl" />
             <span className="font-bold text-white text-[17px] tracking-tight hidden sm:block">
               1001<span className="text-indigo-400">FreeTools</span>
             </span>
@@ -378,7 +378,7 @@ export default function UtilityHub() {
             {/* Brand */}
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <img src="/logo.png" alt="1001FreeTools" className="w-7 h-7 rounded-lg" />
+                <img src="/logo.png" alt="1001FreeTools" width="28" height="28" loading="lazy" className="w-7 h-7 rounded-lg" />
                 <span className="font-bold text-white">1001<span className="text-indigo-400">FreeTools</span></span>
               </div>
               <p className="text-slate-500 text-sm leading-relaxed">

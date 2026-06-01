@@ -11,7 +11,7 @@ function NavBar() {
         <div className="w-px h-4 bg-slate-700" />
         <div className="flex items-center gap-2 text-sm font-medium text-white"><Timer size={15} className="text-red-400" /> Pomodoro Timer</div>
         <div className="flex-1" />
-        <a href="/" className="flex items-center gap-1.5 text-xs text-slate-500 hover:text-indigo-400 transition"><img src="/logo.png" alt="1001FreeTools" className="w-6 h-6 rounded-md" /></a>
+        <a href="/" className="flex items-center gap-1.5 text-xs text-slate-500 hover:text-indigo-400 transition"><img src="/logo.png" alt="1001FreeTools" width="24" height="24" loading="lazy" className="w-6 h-6 rounded-md" /></a>
       </div>
     </nav>
   );
@@ -89,7 +89,7 @@ export default function Pomodoro() {
   return (
     <div className="min-h-screen bg-[#0f172a] text-slate-200 font-sans selection:bg-indigo-500/30">
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className={`absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full blur-[140px] transition-colors duration-1000 ${mode === 'work' ? 'bg-red-600/10' : mode === 'short' ? 'bg-emerald-600/10' : 'bg-blue-600/10'}`} />
+        <div className={`absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full blur-[60px] transition-colors duration-1000 ${mode === 'work' ? 'bg-red-600/10' : mode === 'short' ? 'bg-emerald-600/10' : 'bg-blue-600/10'}`} />
       </div>
       <NavBar />
       <main className="max-w-md mx-auto px-6 py-12 md:py-16">
