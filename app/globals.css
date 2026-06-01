@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
+/* ── Base tokens ──────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0f172a;
+  --foreground: #e2e8f0;
 }
 
 @theme inline {
@@ -12,15 +13,70 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ── Light mode overrides ─────────────────────────────────── */
+
+/* Slate card backgrounds */
+html.light .bg-slate-800\/30,
+html.light .bg-slate-800\/40,
+html.light .bg-slate-800\/50,
+html.light .bg-slate-800\/60  { background-color: rgba(255,255,255,0.85) !important; }
+
+html.light .bg-slate-900\/30,
+html.light .bg-slate-900\/50,
+html.light .bg-slate-900\/70,
+html.light .bg-slate-900\/80  { background-color: rgba(248,250,252,0.95) !important; }
+
+/* Text */
+html.light .text-slate-200 { color: #1e293b !important; }
+html.light .text-slate-300 { color: #334155 !important; }
+html.light .text-slate-400 { color: #475569 !important; }
+html.light .text-slate-500 { color: #64748b !important; }
+html.light .text-slate-600 { color: #94a3b8 !important; }
+
+/* White text → dark in light mode (headings, labels) */
+html.light h1.text-white,
+html.light h2.text-white,
+html.light h3.text-white  { color: #0f172a !important; }
+
+/* Borders */
+html.light .border-slate-700\/40,
+html.light .border-slate-700\/50,
+html.light .border-slate-700\/80,
+html.light .border-slate-700  { border-color: rgba(203,213,225,0.7) !important; }
+
+html.light .border-slate-800\/60 { border-color: rgba(226,232,240,0.8) !important; }
+
+/* Inputs */
+html.light input,
+html.light textarea,
+html.light select {
+  background-color: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder { color: #94a3b8 !important; }
+
+/* Theme toggle button in light mode */
+html.light .dark-toggle {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #475569 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important;
+}
+html.light .dark-toggle:hover {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+/* Glows: hide in light mode */
+html.light .blur-\[140px\],
+html.light .blur-\[160px\],
+html.light .blur-\[180px\] { opacity: 0.15 !important; }

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-export const SITE_URL = 'https://1001webtools.netlify.app';
+export const SITE_URL = 'https://www.1001freetools.com';
 export const SITE_NAME = '1001WebTools';
 
 export function toolMeta(title: string, description: string, path: string): Metadata {

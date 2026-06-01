@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SITE_URL, SITE_NAME } from "@/lib/seo";
+import ThemeProvider from "@/components/ThemeProvider";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -19,22 +21,21 @@ export const metadata: Metadata = {
     "word counter", "QR code generator", "dice roller", "tip calculator",
     "unit converter", "BMI calculator", "pomodoro timer", "lorem ipsum generator",
   ],
-  authors: [{ name: "1001WebTools" }],
-  creator: "1001WebTools",
+  authors: [{ name: "1001FreeTools" }],
+  creator: "1001FreeTools",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
     siteName: SITE_NAME,
     title: `${SITE_NAME} — Free Online Tools for Everyone`,
-    description:
-      "20+ free online tools for creators, developers and makers. No ads, no registration, no clutter.",
+    description: "20+ free online tools for creators, developers and makers. No ads, no registration, no clutter.",
   },
   twitter: {
     card: "summary_large_image",
     title: `${SITE_NAME} — Free Online Tools for Everyone`,
     description: "20+ free online tools. No ads, no signup.",
-    site: "@1001webtools",
+    site: "@1001freetools",
   },
   robots: {
     index: true,
@@ -47,7 +48,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <ThemeProvider>
+          {children}
+          <ThemeToggle />
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
