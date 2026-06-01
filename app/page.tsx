@@ -351,7 +351,7 @@ export default function UtilityHub() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="mailto:david.laborieux@gmail.com?subject=Tool Suggestion — 1001WebTools"
+                href="mailto:info@1001freetools.com?subject=Tool Suggestion — 1001FreeTools"
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-indigo-500 hover:bg-indigo-400 text-white font-bold rounded-2xl transition-all shadow-lg shadow-indigo-500/20 hover:scale-105"
               >
                 <Star size={17} /> Suggest a tool
