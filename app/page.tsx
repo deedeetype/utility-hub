@@ -177,6 +177,9 @@ export default function UtilityHub() {
             <a href="#tools" className="px-3 py-1.5 text-sm text-slate-400 hover:text-white hover:bg-slate-800/60 rounded-lg transition">
               Browse Tools
             </a>
+            <a href="/blog" className="px-3 py-1.5 text-sm text-slate-400 hover:text-white hover:bg-slate-800/60 rounded-lg transition">
+              Blog
+            </a>
             <a href="#suggest" className="px-3 py-1.5 text-sm text-slate-400 hover:text-white hover:bg-slate-800/60 rounded-lg transition">
               Suggest a Tool
             </a>
@@ -408,9 +411,10 @@ export default function UtilityHub() {
               <h4 className="text-xs font-semibold text-slate-400 mb-4 uppercase tracking-widest">Links</h4>
               <ul className="space-y-2.5">
                 {[
-                  { label: 'All Tools',       href: '#tools'                            },
-                  { label: 'Suggest a Tool',  href: '#suggest'                          },
-                  { label: 'GitHub',          href: 'https://github.com/deedeetype'    },
+                  { label: 'All Tools',       href: '#tools'                                   },
+                  { label: 'Blog',            href: '/blog'                                    },
+                  { label: 'Suggest a Tool',  href: '#suggest'                                 },
+                  { label: 'GitHub',          href: 'https://github.com/deedeetype'           },
                   { label: 'Buy me a coffee', href: 'https://buymeacoffee.com/deedeetype'     },
                 ].map(link => (
                   <li key={link.label}>
