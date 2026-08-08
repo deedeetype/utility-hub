@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.1001freetools.com/sitemap.xml
+# Block nothing — all pages are indexable.
+# /_next/ assets don't need indexing but allowing them is harmless.
+
+Sitemap: https://1001freetools.com/sitemap.xml

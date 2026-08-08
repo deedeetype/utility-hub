@@ -1,4 +1,4 @@
-import { SITE_URL } from '@/lib/seo';
+import { SITE_URL, SITE_NAME } from '@/lib/seo';
 
 interface Props {
   name: string;
@@ -17,7 +17,7 @@ export default function ToolJsonLd({ name, description, path }: Props) {
     operatingSystem: 'Web',
     isAccessibleForFree: true,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-    provider: { '@type': 'Organization', name: '1001WebTools', url: SITE_URL },
+    provider: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
   };
   return (
     <script

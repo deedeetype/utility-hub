@@ -7,8 +7,9 @@ export function generateStaticParams() {
   return getAllSlugs().map(slug => ({ slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const post = getPost(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPost(slug);
   if (!post) notFound();
 
   const url = `${SITE_URL}/blog/${post.slug}`;

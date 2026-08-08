@@ -4,15 +4,18 @@ import { SITE_URL } from '@/lib/seo';
 
 export async function GET() {
   const liveTools = TOOLS.filter(t => t.status === 'live');
+  const now = new Date().toISOString().split('T')[0];
 
   const urls = [
     `  <url>
     <loc>${SITE_URL}/</loc>
+    <lastmod>${now}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>`,
     `  <url>
     <loc>${SITE_URL}/blog</loc>
+    <lastmod>${now}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>`,
@@ -27,8 +30,8 @@ export async function GET() {
     ...liveTools.map(
       t => `  <url>
     <loc>${SITE_URL}/tools/${t.slug}</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>`,
     ),
   ].join('\n');

@@ -2,9 +2,10 @@
 import { POSTS } from '@/lib/posts';
 import type { Metadata } from 'next';
 import { SITE_URL, SITE_NAME } from '@/lib/seo';
+import BlogJsonLd from '@/components/BlogJsonLd';
 
 export const metadata: Metadata = {
-  title: `Blog — Free Tools Tips & Guides | ${SITE_NAME}`,
+  title: 'Free Tools Tips & Guides',
   description: 'Tips, guides and tutorials on productivity, security and everyday web tools. Learn how to get more done online — for free.',
   alternates: { canonical: `${SITE_URL}/blog` },
   openGraph: {
@@ -21,6 +22,7 @@ function formatDate(d: string) {
 export default function BlogPage() {
   return (
     <div className="min-h-screen bg-[#0f172a] text-slate-200 font-sans">
+      <BlogJsonLd />
       {/* Navbar */}
       <nav className="sticky top-0 z-50 border-b border-slate-800/60 bg-[#0f172a]/80 backdrop-blur-md">
         <div className="max-w-5xl mx-auto px-6 h-14 flex items-center gap-4">

@@ -1,6 +1,8 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import { getPost, getAllSlugs, POSTS } from '@/lib/posts';
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
+import { SITE_URL, SITE_NAME } from '@/lib/seo';
 import ContentTools from '../content/top-free-online-tools-productivity';
 import ContentPassword from '../content/how-to-create-strong-password';
 import ContentQr from '../content/what-is-a-qr-code';
@@ -19,17 +21,37 @@ function formatDate(d: string) {
   return new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
-  const post = getPost(params.slug);
+export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = getPost(slug);
   if (!post) notFound();
 
-  const Content = CONTENT_MAP[params.slug];
+  const Content = CONTENT_MAP[slug];
   if (!Content) notFound();
 
   const related = POSTS.filter(p => p.slug !== post.slug).slice(0, 2);
 
+  const articleLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.description,
+    image: post.image,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: { '@type': 'Organization', name: post.author, url: SITE_URL },
+    publisher: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL, logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.png` } },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${post.slug}` },
+    keywords: post.keywords.join(', '),
+  };
+
   return (
     <div className="min-h-screen bg-[#0f172a] text-slate-200 font-sans">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
+      />
+      <BreadcrumbJsonLd items={[{ name: 'Blog', path: '/blog' }, { name: post.title, path: `/blog/${post.slug}` }]} />
       {/* Navbar */}
       <nav className="sticky top-0 z-50 border-b border-slate-800/60 bg-[#0f172a]/80 backdrop-blur-md">
         <div className="max-w-3xl mx-auto px-6 h-14 flex items-center gap-4">

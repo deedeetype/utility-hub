@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { SITE_URL, SITE_NAME } from "@/lib/seo";
+import { SITE_URL, SITE_NAME, SITE_TWITTER } from "@/lib/seo";
 import ThemeProvider from "@/components/ThemeProvider";
 import ThemeToggle from "@/components/ThemeToggle";
 
@@ -46,12 +46,15 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${SITE_NAME} — Free Online Tools for Everyone`,
     description: "32+ free online tools. No ads, no signup.",
-    site: "@1001freetools",
+    site: SITE_TWITTER,
     images: ["/logo.png"],
   },
   robots: {
     index: true,
     follow: true,
+    "max-snippet": -1,
+    "max-image-preview": "large",
+    "max-video-preview": -1,
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
   alternates: { canonical: SITE_URL },
