@@ -192,7 +192,7 @@ export default function ScriptTimer() {
               <Copy size={17} /> {copied ? 'Copied!' : 'Copy script'}
             </button>
             <a
-              href="https://buymeacoffee.com/deedeetype"
+              href="https://buymeacoffee.com/labwyzeapps"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-2xl transition-all text-slate-300 font-medium hover:scale-105"

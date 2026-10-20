@@ -41,7 +41,7 @@ export default function ThemeToggle() {
     <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-2">
       {/* Buy Me a Coffee */}
       <a
-        href="https://buymeacoffee.com/deedeetype"
+        href="https://buymeacoffee.com/labwyzeapps"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Buy me a coffee"
